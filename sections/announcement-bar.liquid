@@ -1,0 +1,141 @@
+<section style="background-color: {{ section.settings.announcement_bar_bg }}; color: {{ section.settings.announcement_bar_txt_color }}" class="w-full" data-rotation-enabled="{{ section.settings.announcement_enable_annimation }}" data-rotation-speed="{{ section.settings.annoucement_annimation_sec | times: 1000 }}">
+  <div
+    class="container flex justify-center items-center {{ section.settings.announcement_height }} lg:justify-between"
+  >
+    {%- if section.blocks.size != 0 -%}
+      {%- for announce in section.blocks -%}
+        {%- case announce.type -%}
+          {%- when "announcement" -%}
+            <a href="#" class="announcement {% if forloop.first %} block {% else %} hidden {% endif %} lg:block font-medium text-sm">
+              {{ announce.settings.announcement }}
+            </a>            
+        {%- endcase -%}
+      {%- endfor -%}
+      {%- else -%}
+        {%- for item in (1..4) -%}
+          <a href="#" class="announcement block font-medium text-sm">
+            10% Student Discount
+          </a>  
+        {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "t:general.announcement-bar",
+    "class": "announcement-bar",
+    "disabled_on": {
+      "groups": ["footer"]
+    },
+    "limit": 1,
+    "tag": "section",
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "name": "Announcement",
+        "type": "announcement",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "inline_richtext",
+            "id": "announcement",
+            "label": "Announcement text",
+            "default": "Welcome to our store"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "header",
+        "content": "Background & text color"
+      },
+      {
+        "type": "color_background",
+        "id": "announcement_bar_bg",
+        "label": "Background color",
+        "default": "#ffffff",
+      },
+      {
+        "type": "color",
+        "id": "announcement_bar_txt_color",
+        "label": "Text color",
+        "default": "#000000",
+      },
+      {
+        "type": "header",
+        "content": "Background height setup",
+        "info": "Recommended h-10"
+      },
+      {
+        "type": "select",
+        "id": "announcement_height",
+        "label": "section height",
+        "options": [
+          {
+            "value": "h-8",
+            "label": "H-8"
+          },
+          {
+            "value": "h-9",
+            "label": "H-9"
+          },
+          {
+            "value": "h-10",
+            "label": "H-10"
+          }
+        ],
+        "default": "h-10",
+        "info": "Recommended H-10"
+      },
+      {
+        "type": "header",
+        "content": "Enable the annimation on mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "announcement_enable_annimation",
+        "label": "Enable annimation",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "Set the annimation second"
+      },
+      {
+        "type": "range",
+        "id": "annoucement_annimation_sec",
+        "min": 3,
+        "max": 10,
+        "label": "Set the timer",
+        "step": 1,
+        "unit": "s",
+        "default": 3,
+      }
+      
+    ],
+    "presets": [
+      {
+        "name": "t:general.announcement-bar",
+        "settings": {
+          "announcement_bar_bg": "#000000",
+          "announcement_bar_txt_color": "#ffffff",
+          "announcement_height": "h-8",
+          "announcement_enable_annimation": false,
+          "annoucement_annimation_sec": 3
+        },
+        "blocks": [
+          {
+            "name": "Announcement",
+            "type": "announcement",
+            "settings": {
+              "announcement": "announcement"
+            }
+          }
+        ]
+      }
+    ],    
+  }
+{% endschema %}

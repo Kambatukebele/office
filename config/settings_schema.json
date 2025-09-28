@@ -1,0 +1,36 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Office-clone",
+    "theme_version": "0.1.0",
+    "theme_author": "Kamba Tukebele",
+    "theme_documentation_url": "https://kambatukebele.com",
+    "theme_support_url": "https://kambatukebele.com/"
+  },
+  {
+    "name": "t:general.typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:general.heading_typography",
+        "info": "All the headings From h1 to h6"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "default": "work_sans_n4",
+        "label": "t:general.heading_typography"
+      },
+      {
+        "type": "header",
+        "content": "t:general.body_typography"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "work_sans_n4",
+        "label": "t:general.body_typography"
+      }
+    ]
+  }
+]

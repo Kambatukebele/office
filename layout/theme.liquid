@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {{ 'tailwind.output.css' | asset_url | stylesheet_tag  }}
+    {{ content_for_header }}
+    <style>
+      h1,h2,h3,h4,h5,h6{
+        font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+        font-weight: {{ settings.type_heading_font.family }};
+      }
+    </style>
+  </head>
+
+  <body>
+    {% sections 'header-group' %}
+    {{ content_for_layout }}
+    {% sections 'footer-group' %}
+    <script src="{{ 'announcement-bar.js' | asset_url }}" defer></script>
+  </body>
+</html>

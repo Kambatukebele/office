@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_VQcBVE": {
+          "type": "announcement",
+          "settings": {
+            "announcement": "announcement one"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_VQcBVE"
+      ],
+      "settings": {
+        "announcement_bar_bg": "#000000",
+        "announcement_bar_txt_color": "#ffffff",
+        "announcement_height": "h-8"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar"
+  ]
+}
