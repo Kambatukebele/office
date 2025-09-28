@@ -11,6 +11,15 @@
   "name": "Header Group",
   "type": "header",
   "sections": {
+    "header_aBbqrK": {
+      "type": "header",
+      "name": "Header",
+      "settings": {
+        "header_bg": "",
+        "header_text_color": "#000000",
+        "header_menu": "main-menu-1"
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
@@ -52,19 +61,10 @@
         "announcement_enable_annimation": false,
         "annoucement_annimation_sec": 3
       }
-    },
-    "header_aBbqrK": {
-      "type": "header",
-      "name": "Header",
-      "settings": {
-        "header_bg": "",
-        "header_text_color": "#000000",
-        "header_menu": "main-menu-1"
-      }
     }
   },
   "order": [
-    "announcement-bar",
-    "header_aBbqrK"
+    "header_aBbqrK",
+    "announcement-bar"
   ]
 }
