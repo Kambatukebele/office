@@ -1,0 +1,729 @@
+<!-- Header -->
+<header class="w-full header h-fit border-b border-b-gray-200 relative">
+  <nav class="container mx-auto h-[60px] flex justify-between items-center">
+    <!-- Menu -->
+    <ul class="hidden xl:flex xl:justify-center xl:items-center xl:gap-6">
+        {%- if section.settings.header_menu != blank -%}
+            {% for nav in section.settings.header_menu.links %}
+                <li class="hidden xl:block xl:text-xs xl:font-medium xl:uppercase">
+                    <a href="{{ nav.url }}">{{ nav.title }}</a>
+                </li>
+            {% endfor %}
+            {% else %}
+                {% for item in (1..8) %}
+                    <li class="hidden xl:block xl:text-xs xl:font-medium xl:uppercase">
+                        <a href="/collection">New in</a>
+                    </li>
+                {% endfor %}
+        {%- endif -%}
+    </ul>
+    <!-- End Menu -->
+    <!-- Logo -->
+    <div class="block">
+      <a class="block w-28 sm:w-36 lg:w-44 xl:w-52" href="{{ shop.url }}">
+        {%- if settings.logo_image != blank -%}
+            {{ settings.logo_image | image_url: width: settings.logo_width | image_tag: class: 'block w-full h-full object-center object-cover'  }}
+            {%- else -%}
+                {{ shop.name | upcase | replace: '-', ' ' }}
+        {%- endif -%}
+      </a>
+    </div>
+    <!-- End Logo -->
+    <!-- Search and Icons -->
+    <div class="flex justify-center items-center gap-6">
+      <!-- Search -->
+      <div class="hidden sm:w-2xs sm:block sm:border-b sm:border-b-gray-200">
+        <div
+          class="hidden sm:h-[40px] sm:flex sm:justify-center sm:items-center sm:gap-2"
+        >
+          <span class="hidden sm:block">
+            <img width="20" height="20"
+              class="hidden sm:block sm:w-5 sm:h-5"
+              src="{{ 'search.svg' | asset_url }}"
+              alt="search icon"
+            />
+          </span>
+          <span class="hidden sm:block">
+            <input
+              class="hidden sm:block sm:text-xs sm:h-[40px] sm:border-none sm:outline-none sm:bg-transparent"
+              type="search"
+              placeholder="Search for products and brands..."
+            />
+          </span>
+        </div>
+      </div>
+      <!-- End Search -->
+      <!-- Icons -->
+      <div class="flex w-20 justify-between items-center sm:w-32">
+        <!-- User icon -->
+        <div class="hidden xl:block xl:relative">
+          <span class="hidden sm:block sm:cursor-pointer userIcon">
+            <img width="28" height="28"
+              class="sm:w-7 sm:h-7"
+              src="{{ 'user.svg' | asset_url }}"
+              alt="user icon"
+            />
+          </span>
+          <div
+            class="hidden userBlock xl:block xl:bg-white xl:border border-gray-200 rounded-sm shadow-lg xl:w-80 xl:p-5 xl:absolute xl:top-40 xl:-right-8 xl:opacity-0 xl:duration-300 xl:ease-in-out xl:z-40"
+          >
+            <div
+              class="xl:flex xl:flex-col xl:justify-center xl:items-center xl:gap-2"
+            >
+              <h6 class="xl:text-base xl:font-medium xl:text-center">
+                Your account
+              </h6>
+              <p class="xl:text-sm xl:text-center">
+                Login if you are an existing Angeldren customer or register to
+                make ordering simple
+              </p>
+              <a
+                href="#"
+                class="xl:text-sm xl:text-center xl:bg-blue-700 xl:rounded-sm xl:px-6 xl:py-3 xl:text-white block"
+                >Login/Register</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- heart  -->
+        <span>
+          <img
+            width="28" height="28"
+            class="w-7 h-7"
+            src="{{ 'heart.svg' | asset_url }}"
+            alt="heart icon"
+          />
+        </span>
+        <!-- bag  -->
+        <span>
+          <img width="28" height="28" class="w-7 h-7" src="{{ 'bag.svg' | asset_url }}" alt="bag icon" />
+        </span>
+      </div>
+      <!-- End Icons -->
+      <!-- Hamburger icon -->
+      <div class="block cursor-pointer xl:hidden">
+        <span class="block w-7 h-7 hamburger">
+          <img
+            width="28" height="28"
+            class="block w-7 h-7"
+            src="{{ 'hamburger.svg' | asset_url }}"
+            alt="menu icon"
+          />
+        </span>
+      </div>
+      <!-- End Hamburger icon -->
+    </div>
+    <!-- End Search and Icons -->
+  </nav>
+  <!-------------------------- Menu navigation on small device --------------------------->
+  <div
+    class="h-screen bg-white z-10 w-full fixed top-0 -right-0 translate-x-full opacity-0 duration-300 ease-in-out flex-col justify-between mobileMenu xl:hidden"
+  >
+    <!-- Head -->
+    <div class="px-4 h-[8rem]">
+      <!-- Logo and close icon -->
+      <div
+        class="flex justify-between items-center h-16 border-b border-gray-100"
+      >
+        <!-- Logo -->
+        <div class="w-28 sm:w-36 lg:w-44">
+            {%- if settings.logo_image != blank -%}
+                {{ settings.logo_image | image_url: width: settings.logo_width | image_tag: class: 'block w-full h-full object-center object-cover'  }}
+            {%- else -%}
+                {{ shop.name | upcase | replace: '-', ' ' }}
+            {%- endif -%}
+        </div>
+        <!-- End Logo -->
+        <!-- close icon -->
+        <span class="block w-7 h-7 cursor-pointer closeHamburger">
+          <img
+            width="28" height="28"
+            class="w-7 h-7"
+            src="{{ 'close.svg' | asset_url }}"
+            alt="close icon"
+          />
+        </span>
+        <!-- End close icon -->
+      </div>
+      <!-- End Logo and close icon -->
+      <!-- Search -->
+      <div class="flex justify-start h-16 items-center gap-2">
+        <span
+          class="border bg-gray-200 border-gray-50 w-10 h-10 flex justify-center items-center"
+        >
+          <img
+            width="20" height="20"
+            class="w-5 h-5"
+            src="{{ 'search.svg' | asset_url }}"
+            alt="search icon"
+          />
+        </span>
+        <span class="block">
+          <input
+            class="text-xs h-12 border-none outline-none bg-transparent sm:text-sm"
+            type="search"
+            placeholder="Search for products and brands..."
+          />
+        </span>
+      </div>
+      <!-- End Search -->
+    </div>
+    <!-- End Head -->
+    <!-- Body menu -->
+    <ul
+      class="mobileMenuUl block px-4 h-[calc(100vh-18.625rem)] overflow-y-scroll"
+    >
+      <!-- <li
+            class="flex justify-between items-center h-[4.375rem] border-b border-gray-200"
+          >
+            <span class="text-base block font-medium uppercase">New in</span>
+            <span class="block">
+              <img
+                class="w-11 h-11"
+                src="./src/svgs/chevron-right.svg"
+                alt="Chevron right icon"
+              />
+            </span>
+          </li> -->
+    </ul>
+    <!-- End Body menu -->
+    <!-- Foot -->
+    <div class="bg-gray-100 px-4 py-5 h-[10.625rem]">
+      <!-- Account -->
+      <div class="flex justify-start items-center gap-5">
+        <span class="block">
+          <img
+            width="28" height="28"
+            class="w-7 h-7"
+            src="{{ 'user.svg' | asset_url }}"
+            alt="user logo account"
+          />
+        </span>
+        <span class="block">
+          <h6 class="text-lg font-semibold uppercase">Account</h6>
+        </span>
+      </div>
+      <!-- End Account -->
+    </div>
+    <!-- End Foot -->
+  </div>
+  <!---------------------- End Menu navigation on small device -------------------------->
+  <!-------------------------- SubMenuComponent --------------------------->
+  <div
+    class="subMenuComponentClass z-10 w-full fixed top-0 -right-0 translate-x-full opacity-0 duration-500 ease-in-out"
+  ></div>
+  <!-------------------------- SubMenuComponent --------------------------->
+</header>
+
+<style>
+    .header{
+        background-image: {{ section.settings.header_bg }};
+        color: {{ section.settings.header_text_color }};
+    }
+</style>
+
+<script>
+    function handleHeader() {
+    const menu = [
+        {
+        title: "MEN",
+        children: [
+            {
+            title: "Category",
+            children: [
+                { title: "New In" },
+                { title: "All men's shoes" },
+                {
+                title: "Trainers",
+                children: [
+                    { title: "Black Trainers" },
+                    { title: "White Trainers" },
+                    { title: "Running Style" },
+                ],
+                },
+                {
+                title: "Shoes",
+                children: [
+                    { title: "Loafers" },
+                    { title: "Casual Shoes" },
+                    { title: "Smart Shoes" },
+                    { title: "Leather Shoes" },
+                    { title: "Boat shoes" },
+                    { title: "Black Shoes" },
+                    { title: "Brown Shoes" },
+                    { title: "Clogs" },
+                    { title: "Slippers" },
+                ],
+                },
+                {
+                title: "Sandals",
+                children: [
+                    { title: "Flip-flops" },
+                    { title: "Sliders" },
+                    { title: "Clogs" },
+                ],
+                },
+                {
+                title: "Boots",
+                children: [
+                    { title: "Chelsea Boots" },
+                    { title: "Black Boots" },
+                    { title: "Brown Boots" },
+                    { title: "Leather Boots" },
+                ],
+                },
+            ],
+            },
+            {
+            title: "Brands",
+            children: [
+                { title: "adidas" },
+                { title: "OFFICE Shoes" },
+                { title: "ASICS" },
+                { title: "BIRKENSTOCK" },
+                { title: "Converse" },
+                { title: "Crocs" },
+                { title: "Dr. Martens" },
+                { title: "Havaianas" },
+                { title: "HOKA" },
+                { title: "New Balance" },
+                { title: "Nike" },
+                { title: "ON" },
+                { title: "Timberland" },
+                { title: "VEJA" },
+                { title: "UGG" },
+            ],
+            },
+            {
+            title: "Trending",
+            children: [
+                { title: "Holiday Shop" },
+                { title: "The Festival Edit" },
+                { title: "Running Styles" },
+                { title: "Nike P-6000" },
+                { title: "Nike Air Force" },
+                { title: "New Balance 1906" },
+                { title: "OFFICE loves adidas" },
+                { title: "adidas Spezial" },
+                { title: "adidas Campus" },
+                { title: "BIRKENSTOCK Boston" },
+                { title: "New season Dr Martens" },
+                { title: "Occasion Shop" },
+                { title: "The OFFICE gift card" },
+            ],
+            },
+        ],
+        },
+        {
+        title: "TRAINERS",
+        children: [
+            {
+            title: "Brands",
+            children: [
+                { title: "adidas" },
+                { title: "ASICS" },
+                { title: "Converse" },
+                { title: "HOKA" },
+                { title: "New Balance" },
+                { title: "Nike" },
+                { title: "OFFICE" },
+                { title: "ON" },
+                { title: "PUMA" },
+                { title: "Vans" },
+                { title: "VEJA" },
+                { title: "View All Brands" },
+            ],
+            },
+            {
+            title: "Trending",
+            children: [
+                { title: "Women's Trainers" },
+                { title: "Men's Trainers" },
+                { title: "Kids' Trainers" },
+                { title: "Running Inspired Trainers" },
+                { title: "OFFICE Design Trainers" },
+                { title: "White Trainers" },
+                { title: "Black Trainers" },
+                { title: "Platform Trainers" },
+                { title: "Trainers Under £50" },
+                { title: "Trainers gift guide" },
+                { title: "Shop OFFSPRING.CO.UK" },
+            ],
+            },
+            {
+            title: "Collections",
+            children: [
+                { title: "adidas Campus" },
+                { title: "adidas Gazelle" },
+                { title: "adidas Handball Spezial" },
+                { title: "adidas Samba" },
+                { title: "adidas SL 72" },
+                { title: "adidas Low Profile" },
+                { title: "ON Cloud" },
+                { title: "Puma Speedcat" },
+                { title: "Converse Chuck 70s" },
+                { title: "New Balance 530" },
+                { title: "New Balance 2002R" },
+                { title: "New Balance 9060" },
+                { title: "New Balance 327" },
+                { title: "Nike Air Force 1" },
+                { title: "Nike Air Max" },
+                { title: "Nike Air Max 90" },
+                { title: "Nike Shox" },
+                { title: "Nike Cortez" },
+                { title: "Nike P-6000" },
+                { title: "Nike V2K" },
+                { title: "Nike Zoom Vomero" },
+            ],
+            },
+            {
+            title: "View All Trainers",
+            children: [{ title: "All Trainers" }],
+            },
+        ],
+        },
+        {
+        title: "KIDS",
+        children: [
+            {
+            title: "Category",
+            children: [
+                { title: "New In" },
+                {
+                title: "Kids Shoes",
+                children: [
+                    { title: "Kids' Trainers" },
+                    { title: "Kids' Sandals" },
+                    { title: "Jelly Shoes" },
+                    { title: "Kids' Slippers" },
+                    { title: "Kids' Boots" },
+                    { title: "Kids' Wellies" },
+                    { title: "OFFICE Girl (Shoe sizes 2 - 5.5)" },
+                    { title: "OFFICE Junior (Trainer Sizes 2 - 5.5)" },
+                    { title: "Holiday shop" },
+                ],
+                },
+                {
+                title: "Accessories",
+                children: [
+                    { title: "Backpacks and Bags" },
+                    { title: "Crocs Jibbitz" },
+                ],
+                },
+            ],
+            },
+            {
+            title: "Size",
+            children: [
+                { title: "Baby shoes (Sizes 1 - 2.5)" },
+                { title: "Infant Shoes (Sizes 3 - 9.5 )" },
+                { title: "Youth Shoes (Sizes 10 -2)" },
+                { title: "Office girl (Shoe Sizes 2 - 5.5)" },
+                { title: "Office Junior (Shoe Sizes 2 - 5.5)" },
+            ],
+            },
+            {
+            title: "School shoes",
+            children: [
+                { title: "Back to School" },
+                { title: "Kids school shoes" },
+                { title: "Girls school shoes" },
+                { title: "Boys school shoes" },
+                { title: "Bags & backpacks" },
+                { title: "Shoe care" },
+            ],
+            },
+            {
+            title: "Brands",
+            children: [
+                { title: "adidas" },
+                { title: "UGG" },
+                { title: "Crocs" },
+                { title: "BIRKENSTOCK" },
+                { title: "Converse" },
+                { title: "Dr. Martens" },
+                { title: "EARTHCHILD" },
+                { title: "Igor" },
+                { title: "Kickers" },
+                { title: "New Balance" },
+                { title: "Nike" },
+                { title: "OFFICE Kids" },
+                { title: "Vans" },
+            ],
+            },
+        ],
+        },
+        {
+        title: "ACCESSORIES",
+        children: [
+            {
+            title: "Accessories",
+            children: [
+                { title: "Shop all Accessories" },
+                { title: "Socks" },
+                { title: "Shoe care" },
+                { title: "Women's slippers" },
+                { title: "Men's slippers" },
+                { title: "Bags and backpacks" },
+                { title: "Caps and Hats" },
+                { title: "Insoles and shoe inserts" },
+                { title: "Crocs Jibbitz" },
+                { title: "The OFFICE gift card" },
+            ],
+            },
+            {
+            title: "Loungewear",
+            children: [
+                { title: "Womens Slippers" },
+                { title: "Mens Slippers" },
+                { title: "Socks" },
+                { title: "Womens Loungewear" },
+                { title: "Mens Loungewear" },
+            ],
+            },
+            {
+            title: "Brands",
+            children: [
+                { title: "adidas" },
+                { title: "BIRKENSTOCK" },
+                { title: "Crocs" },
+                { title: "Dr. Martens" },
+                { title: "Liquiproof LABS" },
+                { title: "New Balance" },
+                { title: "Nike" },
+                { title: "ON" },
+                { title: "UGG" },
+            ],
+            },
+        ],
+        },
+        {
+        title: "BRANDS",
+        children: [
+            { title: "View all brands" },
+            { title: "adidas" },
+            { title: "BIRKENSTOCK" },
+            { title: "OFFICE" },
+            { title: "ON" },
+            { title: "New Balance" },
+            { title: "Nike" },
+            { title: "UGG" },
+            { title: "ALOHAS" },
+            { title: "ASICS" },
+            { title: "Blowfish Malibu" },
+            { title: "BIRKENSTOCK EXQUISITE" },
+            { title: "Converse" },
+            { title: "Crocs" },
+            { title: "Desert Fleur" },
+            { title: "Dolce Vita" },
+            { title: "Dr. Martens" },
+            { title: "EARTHADDICT" },
+            { title: "Flabelus" },
+            { title: "G.H Bass & Co" },
+            { title: "Havaianas" },
+            { title: "HOKA" },
+            { title: "Jordan" },
+            { title: "Les Tropeziennes" },
+            { title: "MIISTA" },
+            { title: "PUMA" },
+            { title: "Steve Madden" },
+            { title: "TEVA" },
+            { title: "Timberland" },
+            { title: "TOMS" },
+            { title: "Tony Bianco" },
+            { title: "Vagabond Shoemakers" },
+            { title: "Vans" },
+            { title: "VEJA" },
+        ],
+        },
+        { title: "SALE" },
+    ];
+
+    const hamburger = document.querySelector(".hamburger"); // Open menu
+    const closeHamburger = document.querySelector(".closeHamburger"); // close menu
+    const mobileMenu = document.querySelector(".mobileMenu"); // The menu
+    const mobileMenuUl = document.querySelector(".mobileMenuUl"); //mobileMenuUl
+    const subMenuComponentClass = document.querySelector(
+        ".subMenuComponentClass"
+    ); // subMenuComponentClass
+
+    //call back function for the toggleMenu
+    function cb() {
+        if (
+        mobileMenu.classList.contains("translate-x-full") &&
+        mobileMenu.classList.contains("opacity-0")
+        ) {
+        mobileMenu.classList.replace("translate-x-full", "translate-x-0");
+        mobileMenu.classList.replace("opacity-0", "opacity-100");
+        } else if (
+        mobileMenu.classList.contains("translate-x-0") &&
+        mobileMenu.classList.contains("opacity-100")
+        ) {
+        mobileMenu.classList.replace("translate-x-0", "translate-x-full");
+        mobileMenu.classList.replace("opacity-100", "opacity-0");
+        }
+    }
+
+    function toggleMenu(menu) {
+        menu.addEventListener("click", cb);
+    }
+    toggleMenu(hamburger);
+    toggleMenu(closeHamburger);
+
+    //Show menu items on mobile
+    mobileMenuUl.innerHTML = menu
+        .map((list) => {
+        const { title } = list;
+        return /*HTML*/ `<li
+                class="mobileMenuList flex justify-between items-center h-[4.375rem] border-b border-gray-200"
+            >
+                <span class="text-base block font-medium uppercase">${title}</span>
+                <span class="block">
+                <img
+                    class="w-11 h-11"
+                    src=".{{ 'chevron-right.svg' | asset_url  }}"
+                    alt="Chevron right icon"
+                />
+                </span>
+            </li>`;
+        })
+        .join("");
+
+    const mobileMenuList = document.querySelectorAll(".mobileMenuList");
+    mobileMenuList.forEach((el, index) => {
+        el.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleMenu(e.currentTarget.offsetParent); // This close the entire menu
+        // console.log(e.currentTarget.firstElementChild.innerHTML);
+
+        //Find the corresponding data
+        let findItem = menu.find(
+            (item) => item.title == e.currentTarget.firstElementChild.innerHTML
+        );
+
+        subMenuComponentClass.classList.replace(
+            "translate-x-full",
+            "translate-x-0"
+        );
+        subMenuComponentClass.classList.replace("opacity-0", "opacity-100");
+
+        subMenuComponentClass.innerHTML = subMenuComponent(findItem);
+        });
+    });
+
+    //Submenu component
+    function subMenuComponent(data) {
+        const { title, children } = data;
+        return /* HTML */ `<div
+        class="h-screen bg-white flex-col justify-between xl:hidden"
+        >
+        <!-- Sub menu head -->
+        <div
+            class="h-16 flex justify-start gap-20 items-center border-y border-gray-200"
+        >
+            <span class="block">
+            <img
+                class="w-11 h-11"
+                src="{{ 'chevron-left.svg' | asset_url  }}"
+                alt="chevron-left"
+            />
+            </span>
+            <span class="text-base block font-medium uppercase">${title}</span>
+        </div>
+        <!-- End Sub menu head -->
+        <!-- Body menu -->
+        <ul class="block px-4 h-[calc(100vh-4rem)] overflow-y-scroll">
+            ${children
+            ?.map((subList) => {
+                const { title } = subList;
+
+                return /*HTML*/ `<li
+            class="mobileSubMenuList flex justify-between items-center h-[4.375rem] border-b border-gray-200"
+            >
+            <a href="#" class="text-base block font-medium uppercase">${title}</a>
+            <span class="block">
+                <img
+                class="w-11 h-11"
+                src="{{ 'chevron-right.svg' | asset_url  }}"
+                alt="Chevron right icon"
+                />
+            </span>
+            </li>`;
+            })
+            .join("")}
+        </ul>
+        <!-- End Body menu -->
+        </div>`;
+    }
+
+    //User account
+    function userAccount() {
+        const userIcon = document.querySelector(".userIcon");
+        const userBlock = document.querySelector(".userBlock");
+
+        userIcon.addEventListener("mouseenter", () => {
+        userBlock.classList.replace("lg:top-40", "lg:top-11");
+        userBlock.classList.replace("lg:opacity-0", "lg:opacity-100");
+        });
+        userBlock.addEventListener("mouseleave", () => {
+        userBlock.classList.replace("lg:top-11", "lg:top-40");
+        userBlock.classList.replace("lg:opacity-100", "lg:opacity-0");
+        });
+    }
+
+        userAccount();
+    }
+    handleHeader()
+</script>
+<!-- End Header -->
+
+{% schema %}
+    {
+        "name": "Header",
+        "class": "header",
+        "disabled_on": {
+            "groups": ["footer"]
+        },
+        "settings": [
+            {
+                "type": "header",
+                "content": "Background and text color"
+            },
+            {
+                "type": "color_background",
+                "id": "header_bg",
+                "label": "Background color",
+                "default": "#ffffff"
+            },
+            {
+                "type": "color",
+                "id": "header_text_color",
+                "label": "Text color",
+                "default": "#000000"
+            },
+            {
+                "type": "header",
+                "content": "Navigation"
+            },
+            {
+                "type": "link_list",
+                "id": "header_menu",
+                "label": "Menu",
+            }
+        ],
+        "blocks": [],
+        "limit": 1,
+        "tag": "header",
+        "presets": [
+            {
+                "name": "Header",
+                "settings": {
+                    "header_bg": "#ffffff",
+                    "header_text_color": "#000000",
+                    "header_menu": ""
+                }
+            }
+        ]
+    }
+{% endschema %}
+
