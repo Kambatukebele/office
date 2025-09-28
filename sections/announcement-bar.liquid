@@ -13,7 +13,7 @@
       {%- endfor -%}
       {%- else -%}
         {%- for item in (1..4) -%}
-          <a href="#" class="announcement block font-medium text-sm">
+          <a href="#" class="announcement {% if forloop.first %} block {% else %} hidden {% endif %} lg:block font-medium text-sm">
             10% Student Discount
           </a>  
         {%- endfor -%}

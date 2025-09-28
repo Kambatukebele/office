@@ -14,24 +14,52 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_VQcBVE": {
+        "announcement_CCajhP": {
           "type": "announcement",
           "settings": {
-            "announcement": "announcement one"
+            "announcement": "10% Student Discount"
+          }
+        },
+        "announcement_9m66kG": {
+          "type": "announcement",
+          "settings": {
+            "announcement": "Shop New Season"
+          }
+        },
+        "announcement_ttCg7h": {
+          "type": "announcement",
+          "settings": {
+            "announcement": "Free Delivery over £80*"
+          }
+        },
+        "announcement_9RWq7T": {
+          "type": "announcement",
+          "settings": {
+            "announcement": "Store Locator"
           }
         }
       },
       "block_order": [
-        "announcement_VQcBVE"
+        "announcement_CCajhP",
+        "announcement_9m66kG",
+        "announcement_ttCg7h",
+        "announcement_9RWq7T"
       ],
       "settings": {
         "announcement_bar_bg": "#000000",
         "announcement_bar_txt_color": "#ffffff",
-        "announcement_height": "h-8"
+        "announcement_height": "h-8",
+        "announcement_enable_annimation": false,
+        "annoucement_annimation_sec": 3
       }
+    },
+    "header": {
+      "type": "header",
+      "settings": {}
     }
   },
   "order": [
-    "announcement-bar"
+    "announcement-bar",
+    "header"
   ]
 }
