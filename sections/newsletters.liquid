@@ -1,0 +1,330 @@
+<!-- News -->
+<section
+  style="background: {{ section.settings.newsletters_bg }}; color: {{ section.settings.newsletters_color_text }}"
+  class="w-full {{ section.settings.newsletter_padding_y }}"
+>
+  <div
+    class="container mx-auto flex flex-col gap-5 justify-center items-center sm:flex-row sm:items-start"
+  >
+    <div
+      class="w-full flex flex-col justify-center items-center gap-1 sm:max-w-1/2 sm:justify-start lg:px-2"
+    >
+      <h3
+        class="text-base text-center w-full font-semibold sm:text-lg sm:text-left md:text-xl lg:text-[22px]"
+      >
+        New here?
+      </h3>
+      <p
+        class="text-base font-normal w-full text-center sm:text-left md:text-[22px]"
+      >
+        <strong>Sign up</strong> for all the news on exclusives, sale previews & styling advice. What’s not to love?
+      </p>
+    </div>
+    <form
+      class="w-full flex flex-col justify-center items-center gap-4 sm:max-w-1/2 lg:px-2"
+    >
+      <div class="w-full flex flex-col justify-center items-center gap-1">
+        <h5 class="w-full text-sm font-light text-center">What emails would you like to receive?</h5>
+        <div class="w-full flex justify-start items-center gap-3.5">
+          <span>
+            <input type="radio" name="woman" id="">
+            <label class="text-sm font-normal" for="Woman">Woman</label>
+          </span>
+          <span>
+            <input type="radio" name="men" id="">
+            <label class="text-sm font-normal" for="Men">Men</label>
+          </span>
+          <span>
+            <input type="radio" name="kids" id="">
+            <label class="text-sm font-normal" for="Kids">Kids</label>
+          </span>
+          <span>
+            <input type="radio" name="all" id="">
+            <label class="text-sm font-normal" for="All">All</label>
+          </span>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col justify-center items-center gap-4 sm:flex-row sm:gap-0"
+      >
+        <input
+          class="block w-full h-12 pl-4 text-sm bg-gray-200 border border-gray-200"
+          type="email"
+          placeholder="Email"
+        >
+        <input
+          class="block w-full h-12 bg-blue-600 text-white text-sm sm:w-[120px]"
+          type="submit"
+          value="Submit"
+        >
+      </div>
+      <div
+        class="pb-1 w-fit border-b border-black sm:w-full sm:flex sm:justify-start sm:items-center"
+      >
+        <a class="text-xs sm:text-left" href="#">View our Privacy Policy</a>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- End News -->
+
+{% schema %}
+{
+  "name": "Newsletters",
+  "class": "newsletters",
+  "tag": "section",
+  "limit": 1,
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Newsletter settings"
+    },
+    {
+      "type": "color_background",
+      "id": "newsletters_bg",
+      "label": "Newsletter Background"
+    },
+    {
+      "type": "color",
+      "id": "newsletters_color_text",
+      "label": "Color text",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Paddings"
+    },
+    {
+      "type": "select",
+      "id": "newsletter_padding_y",
+      "label": "Padding top and bottom",
+      "options": [
+        {
+          "label": "40px",
+          "value": "py-10"
+        },
+        {
+          "label": "48px",
+          "value": "py-12"
+        },
+        {
+          "label": "56px",
+          "value": "py-14"
+        }
+      ],
+      "default": "py-12"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Texts",
+      "type": "texts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Headings, body text settings"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "newsletter_heading_text",
+          "label": "Heading",
+          "default": "Write here"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "newsletter_heading_body",
+          "label": "Body",
+          "default": "Lorem ipsum dolor sit amet consectetur adipiscing elit torquent nam feugiat "
+        },
+        {
+          "type": "header",
+          "content": "Headings, body text transform"
+        },
+        {
+          "type": "select",
+          "id": "newsletters_heading_text_transform",
+          "label": "Heading text transform",
+          "options": [
+            {
+              "label": "Left",
+              "value": "sm:text-left"
+            },
+            {
+              "label": "Center",
+              "value": "sm:text-center"
+            },
+            {
+              "label": "Right",
+              "value": "sm:text-right"
+            }
+          ],
+          "default": "sm:text-left"
+        },
+        {
+          "type": "select",
+          "id": "newsletters_body_text_transform",
+          "label": "Body text transform",
+          "options": [
+            {
+              "label": "Left",
+              "value": "sm:text-left"
+            },
+            {
+              "label": "Center",
+              "value": "sm:text-center"
+            },
+            {
+              "label": "Right",
+              "value": "sm:text-right"
+            }
+          ],
+          "default": "sm:text-left"
+        }
+      ]
+    },
+    {
+      "name": "Subscription form",
+      "type": "subscription_form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Heading settings"
+        },
+        {
+          "type": "text",
+          "id": "form_heading",
+          "label": "Heading",
+          "default": "Write something here"
+        },
+        {
+          "type": "select",
+          "id": "form_heading_position",
+          "label": "Heading position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "text-left"
+            },
+            {
+              "label": "Center",
+              "value": "text-center"
+            },
+            {
+              "label": "Right",
+              "value": "text-right"
+            }
+          ],
+          "default": "text-center"
+        },
+        {
+          "type": "header",
+          "content": "Inputs texts and position"
+        },
+        {
+          "type": "select",
+          "id": "form_input_position",
+          "label": "Radios positions",
+          "options": [
+            {
+              "label": "Left",
+              "value": "justify-start"
+            },
+            {
+              "label": "Center",
+              "value": "justify-center"
+            },
+            {
+              "label": "Right",
+              "value": "justify-end"
+            }
+          ],
+          "default": "justify-start"
+        },
+        {
+          "type": "text",
+          "id": "form_radio_one",
+          "label": "Text radio one",
+          "default": "Radio 1"
+        },
+        {
+          "type": "text",
+          "id": "form_radio_two",
+          "label": "Text radio two",
+          "default": "Radio 2"
+        },
+        {
+          "type": "text",
+          "id": "form_radio_three",
+          "label": "Text radio three",
+          "default": "Radio 3"
+        },
+        {
+          "type": "text",
+          "id": "form_placeholder_text",
+          "label": "Input placeholder text",
+          "default": "Email"
+        },
+        {
+          "type": "header",
+          "content": "Buttons settings"
+        },
+        {
+          "type": "text",
+          "id": "form_btn_text",
+          "label": "Button",
+          "default": "Send",
+          "placeholder": "Send"
+        },
+        {
+          "type": "color",
+          "id": "form_btn_bg",
+          "label": "Button background color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "form_btn_text_color",
+          "label": "Button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Privacy text and link"
+        },
+        {
+          "type": "text",
+          "id": "form_privacy_text",
+          "label": "Text privacy",
+          "placeholder": "View our Policy",
+          "default": "Our privacy"
+        },
+        {
+          "type": "url",
+          "id": "form_privacy_url",
+          "label": "Link privacy"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletters",
+      "settings": {
+        "newsletters_bg": "",
+        "newsletters_color_text": "#000000",
+        "newsletter_padding_y": "py-12"
+      },
+      "blocks": [
+        {
+          "type": "texts"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

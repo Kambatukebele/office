@@ -1,11 +1,65 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "Footer Group",
   "type": "footer",
   "sections": {
+    "newsletters": {
+      "type": "newsletters",
+      "blocks": {
+        "texts_MXChHe": {
+          "type": "texts",
+          "settings": {
+            "newsletter_heading_text": "Write here",
+            "newsletter_heading_body": "Lorem ipsum dolor sit amet consectetur adipiscing elit torquent nam feugiat",
+            "newsletters_heading_text_transform": "sm:text-left",
+            "newsletters_body_text_transform": "sm:text-left"
+          }
+        },
+        "subscription_form_YndWYP": {
+          "type": "subscription_form",
+          "settings": {
+            "form_heading": "Write something here",
+            "form_radio_one": "Radio 1",
+            "form_radio_two": "Radio 2",
+            "form_radio_three": "Radio 3",
+            "form_placeholder_text": "Email",
+            "form_btn_bg": "#000000",
+            "form_btn_text_color": "#ffffff",
+            "form_privacy_text": "Our privacy",
+            "form_privacy_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "texts_MXChHe",
+        "subscription_form_YndWYP"
+      ],
+      "settings": {
+        "newsletters_bg": "#FFFFFF",
+        "newsletters_color_text": "#060606",
+        "newsletter_padding_y": "py-12"
+      }
+    },
     "footer": {
       "type": "footer",
       "settings": {}
+    },
+    "copyrights": {
+      "type": "copyrights",
+      "settings": {}
     }
   },
-  "order": ["footer"]
+  "order": [
+    "newsletters",
+    "footer",
+    "copyrights"
+  ]
 }
