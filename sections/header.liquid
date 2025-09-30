@@ -150,20 +150,29 @@
     <ul
       class="mobileMenuUl block px-4 h-[calc(100vh-18.625rem)] overflow-y-scroll"
     >
-      <!--
-        <li
-          class="flex justify-between items-center h-[4.375rem] border-b border-gray-200"
-        >
-          <span class="text-base block font-medium uppercase">New in</span>
-          <span class="block">
-            <img
-              class="w-11 h-11"
-              src="./src/svgs/chevron-right.svg"
-              alt="Chevron right icon"
-            />
-          </span>
-        </li>
-      -->
+      {% comment %} {{ section.settings.header_menu.links }} {% endcomment %}
+      {%- if section.settings.header_menu != blank -%}
+        {%- for menu in section.settings.header_menu.links -%}
+          <li
+            class="flex justify-between items-center h-[4.375rem] border-b border-gray-200"
+          >
+            <span class="text-base block {{ section.settings.text_fonts }} {{ section.settings.text_transform }}">
+              {{ menu.title }}
+            </span>
+            {%- if menu.levels != 0 -%}
+              <span class="block">
+                <img
+                  width="24"
+                  height="24"
+                  class="w-6 h-6"
+                  src="{{ 'chevron-right.svg' | asset_url }}"
+                  alt="Chevron right icon"
+                >
+              </span>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
     </ul>
     <!-- End Body menu -->
     <!-- Foot -->
@@ -183,9 +192,56 @@
   </div>
   <!-- -------------------- End Menu navigation on small device ------------------------ -->
   <!-- ------------------------ SubMenuComponent ------------------------- -->
-  <div
-    class="subMenuComponentClass z-10 w-full fixed top-0 -right-0 translate-x-full opacity-0 duration-500 ease-in-out"
-  ></div>
+  {% comment %}
+    <div
+      class="subMenuComponentClass z-10 w-full fixed top-0 -right-0 translate-x-full opacity-0 duration-500 ease-in-out"
+    >
+      {%- if section.settings.header_menu -%}
+        {%- for menuComponent in section.settings.header_menu.links -%}
+          {%- if menuComponent.levels != 0 -%}
+            {% for subMenu in menuComponent.links %}
+              <div class="h-screen bg-white flex-col justify-between xl:hidden">
+                <!-- Sub menu head -->
+                <div class="h-16 flex justify-start gap-20 items-center border-y border-gray-200">
+                  <span class="block">
+                    <img
+                      width="44"
+                      height="44"
+                      class="w-11 h-11"
+                      src="{{ 'chevron-left.svg' | asset_url  }}"
+                      alt="chevron-left"
+                    >
+                  </span>
+                  <span class="text-base block font-medium uppercase">
+                    {{ subMenu.title }}
+                  </span>
+                </div>
+                <!-- End Sub menu head -->
+                <!-- Body menu -->
+                <ul class="block px-4 h-[calc(100vh-4rem)] overflow-y-scroll">
+                  <li
+                    class="mobileSubMenuList flex justify-between items-center h-[4.375rem] border-b border-gray-200"
+                  >
+                    <a href="#" class="text-base block font-medium uppercase">${title}</a>
+                    <span class="block">
+                      <img
+                        width="44"
+                        height="44"
+                        class="w-11 h-11"
+                        src="{{ 'chevron-right.svg' | asset_url  }}"
+                        alt="Chevron right icon"
+                      >
+                    </span>
+                  </li>
+                </ul>
+                <!-- End Body menu -->
+              </div>
+            {% endfor %}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  {% endcomment %}
   <!-- ------------------------ SubMenuComponent ------------------------- -->
 </header>
 
@@ -198,7 +254,7 @@
 
 <script>
   function handleHeader() {
-    const menu = [
+    {% comment %} const menu = [
       {
         title: 'MEN',
         children: [
@@ -500,7 +556,7 @@
         ],
       },
       { title: 'SALE' },
-    ];
+    ]; {% endcomment %}
 
     const hamburger = document.querySelector('.hamburger'); // Open menu
     const closeHamburger = document.querySelector('.closeHamburger'); // close menu
@@ -602,7 +658,6 @@
     function userAccount() {
       const userIcon = document.querySelector('.userIcon');
       const userBlock = document.querySelector('.userBlock');
-      console.log(userBlock);
       userIcon.addEventListener('mouseenter', () => {
         userBlock.classList.replace('top-40', 'top-14');
         userBlock.classList.replace('opacity-0', 'opacity-100');
