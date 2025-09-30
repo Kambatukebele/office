@@ -17,7 +17,10 @@
       "settings": {
         "header_bg": "",
         "header_text_color": "#000000",
-        "header_menu": "main-menu-1"
+        "header_menu": "main-menu-1",
+        "text_fonts": "font-normal",
+        "text_transform": "uppercase",
+        "icons_color": "#000000"
       }
     },
     "announcement-bar": {
