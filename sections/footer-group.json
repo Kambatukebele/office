@@ -38,10 +38,7 @@
           }
         }
       },
-      "block_order": [
-        "texts_MXChHe",
-        "subscription_form_YndWYP"
-      ],
+      "block_order": ["texts_MXChHe", "subscription_form_YndWYP"],
       "settings": {
         "newsletters_bg": "#FFFFFF",
         "newsletters_color_text": "#060606",
@@ -57,9 +54,5 @@
       "settings": {}
     }
   },
-  "order": [
-    "newsletters",
-    "footer",
-    "copyrights"
-  ]
+  "order": ["newsletters", "footer", "copyrights"]
 }

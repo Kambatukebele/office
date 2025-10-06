@@ -1,0 +1,49 @@
+{% doc %}
+  Renders product card
+
+  @param image - {string} Accept an image
+  @param title - {string} Accept a title
+  @param description - {string} Accept a description
+  @param price - {string} Accept a price
+  @param link - {string} Accept a link
+{% enddoc %}
+<a
+  href="{{ link }}"
+  class="product-card w-full max-w-[200px] sm:max-w-[300px] inline-block mr-2"
+>
+  <div class="w-full max-w-[200px] sm:max-w-[300px]">
+    {%- if image != blank -%}
+      {{
+        image
+        | image_url: width: 300, height: 300
+        | image_tag: class: 'w-full h-full object-cover overflow-hidden block'
+      }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover overflow-hidden block' }}
+    {%- endif -%}
+  </div>
+  <div class="p-4">
+    <h4 class="font-bold text-xs mb-1">
+      {%- if title != blank -%}
+        {{- title -}}
+      {%- else -%}
+        Lorem ipsum
+      {%- endif -%}
+    </h4>
+    <p class="text-gray-600 text-xs">
+      {%- if description != blank -%}
+        {{- description -}}
+      {%- else -%}
+        Lorem ipsum
+      {%- endif -%}
+    </p>
+    <p class="text-gray-600 text-xs mb-2">Mochra Birko Flex</p>
+    <p class="font-bold text-xs">
+      {%- if price != blank -%}
+        {{- price | money_with_currency -}}
+      {%- else -%}
+        $90
+      {%- endif -%}
+    </p>
+  </div>
+</a>
