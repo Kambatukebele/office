@@ -1,1 +1,170 @@
-<section>Hero section</section>
+<section
+  class="heroImage w-full {{ section.settings.hero_height }} flex justify-center items-center overflow-hidden relative"
+>
+  {%- if section.blocks.size > 0 -%}
+    {%- for sliding in section.blocks -%}
+      {%- case sliding.type -%}
+        {%- when 'slide' -%}
+          <a
+            href="{{ sliding.settings.hero_url }}"
+            class="hero-slide absolute inset-0 w-full h-full opacity-0 transform translate-x-full"
+            style="transition: all {{ section.settings.animation_speed }}ms ease-in-out;"
+          >
+            {%- if sliding.settings.hero_image != blank -%}
+              {{
+                sliding.settings.hero_image
+                | image_url: width: 2000, height: 740
+                | image_tag: class: 'w-full h-full object-center object-cover'
+              }}
+            {% else %}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'w-full h-full object-center object-cover' }}
+            {%- endif -%}
+          </a>
+      {%- endcase -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- for item in (1..3) -%}
+      <a
+        href="/"
+        class="hero-slide absolute inset-0 w-full h-full opacity-0 transform translate-x-full"
+        style="transition: all {{ section.settings.animation_speed }}ms ease-in-out;"
+      >
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'w-full h-full object-center object-cover' }}
+      </a>
+    {%- endfor -%}
+  {%- endif -%}
+
+  <!-- Navigation Dots -->
+  <div class="slider-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+    <button class="w-3 h-3 rounded-full bg-white bg-opacity-100 slider-dot" data-index="0"></button>
+    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="1"></button>
+    <button class="w-3 h-3 rounded-full bg-white bg-opacity-50 slider-dot" data-index="2"></button>
+  </div>
+</section>
+
+{% javascript %}
+  function hero() {
+    const hero = document.querySelector('.heroImage');
+    if (!hero) return;
+
+    const slides = hero.querySelectorAll('.hero-slide');
+    const dots = hero.querySelectorAll('.slider-dot');
+    let currentIndex = 0;
+    let interval;
+
+    // 💡 Instantly show the first slide before JS animations
+    slides[0].classList.remove('translate-x-full', 'opacity-0');
+    slides[0].classList.add('translate-x-0', 'opacity-100');
+
+    function goToSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('translate-x-full', 'opacity-0');
+          slide.classList.add('translate-x-0', 'opacity-100');
+          slide.style.zIndex = 2;
+        } else {
+          slide.classList.remove('translate-x-0', 'opacity-100');
+          slide.classList.add('translate-x-full', 'opacity-0');
+          slide.style.zIndex = 1;
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-opacity-100', i === index);
+        dot.classList.toggle('bg-opacity-50', i !== index);
+      });
+
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      const next = (currentIndex + 1) % slides.length;
+      goToSlide(next);
+    }
+
+    function startSlider() {
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    function stopSlider() {
+      clearInterval(interval);
+    }
+
+    // Dot click navigation
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.index);
+        goToSlide(index);
+        stopSlider();
+        startSlider();
+      });
+    });
+
+    // Pause on hover
+    hero.addEventListener('mouseenter', stopSlider);
+    hero.addEventListener('mouseleave', startSlider);
+
+    // Start autoplay
+    startSlider();
+  }
+
+  document.addEventListener('DOMContentLoaded', hero);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "hero",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"],
+    "templates": ["article", "collection", "product"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background height"
+    },
+    {
+      "type": "select",
+      "id": "hero_height",
+      "label": "Hero height",
+      "options": [
+        { "label": "Small", "value": "h-[50vh]" },
+        { "label": "Medium", "value": "h-[70vh]" },
+        { "label": "Full", "value": "h-[100vh]" }
+      ],
+      "default": "h-[70vh]"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation speed (ms)",
+      "min": 300,
+      "max": 3000,
+      "step": 100,
+      "unit": "ms",
+      "default": 1000
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Slide",
+      "type": "slide",
+      "limit": 3,
+      "settings": [
+        { "type": "header", "content": "Slide image" },
+        { "type": "image_picker", "id": "hero_image", "label": "Add an image" },
+        { "type": "url", "id": "hero_url", "label": "Add your link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "settings": { "hero_height": "h-[70vh]" },
+      "blocks": [{ "type": "slide" }]
+    }
+  ]
+}
+{% endschema %}
