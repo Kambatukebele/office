@@ -1,0 +1,28 @@
+{% doc %}
+  Renders blog card
+
+  @param image - {string} Accept an image
+  @param title - {string} Accept a title
+  @param link - {string} Accept a link
+
+  @example {% render 'blog-card', image:image,title:title,link:link %}
+{% enddoc %}
+
+<a href="{{ link }}">
+  <div>
+    {%- if image != blank -%}
+      {{ image | image_url: width: 300, height: 300 | image_tag: class: 'w-full h-full object-cover block' }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover block' }}
+    {%- endif -%}
+  </div>
+  <div class="p-4">
+    <p class="text-base font-normal text-center">
+      {%- if title != blank -%}
+        {{- title -}}
+      {%- else -%}
+        Lorem ipsum
+      {%- endif -%}
+    </p>
+  </div>
+</a>
