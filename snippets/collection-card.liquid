@@ -1,0 +1,31 @@
+{% doc %}
+  Renders collection card
+
+  @param image - {string} Accept an image
+  @param title - {string} Accept a title
+  @param link - {string} Accept a link
+
+  @example {% render 'collection-card', image:image,title:title,link:link %}
+{% enddoc %}
+
+<div class="w-full">
+  <div class="w-full">
+    {%- if image != blank -%}
+      {{ image | image_url: width: 300, height: 300 | image_tag: class: 'w-full h-full object-cover overflow-hidden' }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover overflow-hidden' }}
+    {%- endif -%}
+  </div>
+  <div
+    class="w-full flex flex-col justify-center items-center gap-4 py-4"
+  >
+    <h4 class="text-xl font-medium text-center">
+      {%- if title != blank -%}
+        {{- title -}}
+      {%- else -%}
+        Lorem ipsum
+      {%- endif -%}
+    </h4>
+    <a class="text-sm font-normal text-center block" href="{{ link }}">Shop Now</a>
+  </div>
+</div>
