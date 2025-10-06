@@ -8,5 +8,29 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "type_heading_font": "work_sans_n4",
+      "type_body_font": "work_sans_n4",
+      "logo_image": "",
+      "logo_width": 150,
+      "website_presets_colors": {
+        "scheme-1": {
+          "settings": {
+            "background": "#fff",
+            "background_gradient": "",
+            "text_color": "#000",
+            "primary_border_btn_color": "#000",
+            "primary_bg_btn_color": "#000",
+            "primary_text_btn_color": "#fff",
+            "secondary_border_btn_color": "#000",
+            "secondary_bg_btn_color": "#fff",
+            "secondary_text_btn_color": "#000",
+            "shadow": "#000"
+          }
+        }
+      }
+    }
+  }
 }

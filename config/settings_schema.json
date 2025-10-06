@@ -56,5 +56,101 @@
         "default": 190
       }
     ]
+  },
+  {
+    "name": "Website preset colors",
+    "settings": [
+      {
+        "type": "color_scheme_group",
+        "id": "website_presets_colors",
+        "definition": [
+          {
+            "type": "header",
+            "content": "Background color"
+          },
+          {
+            "type": "color",
+            "id": "background",
+            "label": "Background color"
+          },
+          {
+            "type": "color_background",
+            "id": "background_gradient",
+            "label": "background_gradient"
+          },
+          {
+            "type": "header",
+            "content": "Text color"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text color"
+          },
+          {
+            "type": "header",
+            "content": "Primary colors"
+          },
+          {
+            "type": "color",
+            "id": "primary_border_btn_color",
+            "label": "Primary button border color"
+          },
+          {
+            "type": "color",
+            "id": "primary_bg_btn_color",
+            "label": "Background button color"
+          },
+          {
+            "type": "color",
+            "id": "primary_text_btn_color",
+            "label": "Background button text color"
+          },
+          {
+            "type": "header",
+            "content": "Secondary colors"
+          },
+          {
+            "type": "color",
+            "id": "secondary_border_btn_color",
+            "label": "Secondary button border color"
+          },
+          {
+            "type": "color",
+            "id": "secondary_bg_btn_color",
+            "label": "Secondary Background button color"
+          },
+          {
+            "type": "color",
+            "id": "secondary_text_btn_color",
+            "label": "Secondary Background button text color"
+          },
+          {
+            "type": "header",
+            "content": "Shadow color"
+          },
+          {
+            "type": "color",
+            "id": "shadow",
+            "label": "Shadow"
+          }
+        ],
+        "role": {
+          "background": {
+            "solid": "background",
+            "gradient": "background_gradient"
+          },
+          "icons": "text_color",
+          "links": "text_color",
+          "text": "text_color",
+          "primary_button_border": "primary_border_btn_color",
+          "primary_button": "primary_bg_btn_color",
+          "on_primary_button": "primary_text_btn_color",
+          "secondary_button_border": "secondary_border_btn_color",
+          "secondary_button": "secondary_bg_btn_color",
+          "on_secondary_button": "secondary_text_btn_color"
+        }
+      }
+    ]
   }
 ]
