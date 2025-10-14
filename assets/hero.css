@@ -1,0 +1,32 @@
+/* Initial slider state */
+.heroImage a {
+  transform: translateX(100%);
+}
+
+.heroImage a:first-child {
+  transform: translateX(0);
+}
+
+/* Transition effects */
+.heroImage a {
+  transition: transform 1s ease-in-out;
+}
+
+/* Navigation dots styling */
+.slider-dots {
+  z-index: 10;
+}
+
+.slider-dots button {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.slider-dots button:hover {
+  transform: scale(1.2);
+}
+
+/* Pause on hover */
+.heroImage:hover a {
+  transition-duration: 1.5s;
+}

@@ -16,31 +16,16 @@
           "type": "slide",
           "settings": {
             "hero_image": "shopify://shop_images/blog2.webp",
-            "hero_url": ""
-          }
-        },
-        "slide_qbJPY6": {
-          "type": "slide",
-          "settings": {
-            "hero_image": "shopify://shop_images/angeldren3.webp",
-            "hero_url": ""
-          }
-        },
-        "slide_hWPNFL": {
-          "type": "slide",
-          "settings": {
-            "hero_image": "shopify://shop_images/angeldren1.webp",
-            "hero_url": ""
+            "hero_url": "",
+            "mobile_image_hero": "shopify://shop_images/brand2.webp"
           }
         }
       },
       "block_order": [
-        "slide_UigT7P",
-        "slide_qbJPY6",
-        "slide_hWPNFL"
+        "slide_UigT7P"
       ],
       "settings": {
-        "hero_height": "h-[70vh]",
+        "hero_height": "h-[100vh]",
         "animation_speed": 1000
       }
     }

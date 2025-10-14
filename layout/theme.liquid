@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
-    {{ 'tailwind.output.css' | asset_url | stylesheet_tag  }}
+    {{ 'tailwind.output.css' | asset_url | stylesheet_tag }}
     {{ content_for_header }}
     <style>
       h1,h2,h3,h4,h5,h6{
@@ -16,5 +16,6 @@
     {{ content_for_layout }}
     {% sections 'footer-group' %}
     <script src="{{ 'announcement-bar.js' | asset_url }}" defer></script>
+    <script src="{{ 'hero.js' | asset_url }}" defer></script>
   </body>
 </html>

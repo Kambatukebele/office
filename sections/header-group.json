@@ -58,10 +58,10 @@
         "announcement_9RWq7T"
       ],
       "settings": {
-        "announcement_bar_bg": "#000000",
-        "announcement_bar_txt_color": "#ffffff",
-        "announcement_height": "h-8",
-        "announcement_enable_annimation": false,
+        "announcement_bar_bg": "#fccee8",
+        "announcement_bar_txt_color": "#060606",
+        "announcement_height": "h-10",
+        "announcement_enable_annimation": true,
         "annoucement_annimation_sec": 3
       }
     }

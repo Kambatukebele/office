@@ -8,7 +8,29 @@
  * ------------------------------------------------------------
  */
 {
-  "current": "Default",
+  "current": {
+    "type_heading_font": "work_sans_n4",
+    "type_body_font": "work_sans_n4",
+    "logo_image": "shopify://shop_images/office-logo.svg",
+    "logo_width": 150,
+    "content_for_index": [],
+    "website_presets_colors": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text_color": "#000000",
+          "primary_border_btn_color": "#000000",
+          "primary_bg_btn_color": "#000000",
+          "primary_text_btn_color": "#ffffff",
+          "secondary_border_btn_color": "#000000",
+          "secondary_bg_btn_color": "#ffffff",
+          "secondary_text_btn_color": "#000000",
+          "shadow": "#000000"
+        }
+      }
+    }
+  },
   "presets": {
     "Default": {
       "type_heading_font": "work_sans_n4",

@@ -5,7 +5,7 @@
     <ul class="hidden xl:flex xl:justify-center xl:items-center xl:gap-6">
       {%- if section.settings.header_menu != blank -%}
         {% for nav in section.settings.header_menu.links %}
-          <li class="hidden xl:block xl:text-xs {{ section.settings.text_fonts }} {{ section.settings.text_transform }}">
+          <li class="hidden font-semibold xl:block xl:text-xs {{ section.settings.text_fonts }} {{ section.settings.text_transform }}">
             <a href="{{ nav.url }}">{{ nav.title }}</a>
           </li>
         {% endfor %}
