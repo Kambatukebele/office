@@ -1,9 +1,51 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "blocks": {
+        "slide_UigT7P": {
+          "type": "slide",
+          "settings": {
+            "hero_image": "shopify://shop_images/blog2.webp",
+            "hero_url": ""
+          }
+        },
+        "slide_qbJPY6": {
+          "type": "slide",
+          "settings": {
+            "hero_image": "shopify://shop_images/angeldren3.webp",
+            "hero_url": ""
+          }
+        },
+        "slide_hWPNFL": {
+          "type": "slide",
+          "settings": {
+            "hero_image": "shopify://shop_images/angeldren1.webp",
+            "hero_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_UigT7P",
+        "slide_qbJPY6",
+        "slide_hWPNFL"
+      ],
+      "settings": {
+        "hero_height": "h-[70vh]",
+        "animation_speed": 1000
+      }
     }
   },
-  "order": ["hero"]
+  "order": [
+    "hero"
+  ]
 }
