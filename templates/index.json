@@ -28,9 +28,34 @@
         "hero_height": "h-[100vh]",
         "animation_speed": 1000
       }
+    },
+    "featured_products_3mUxgm": {
+      "type": "featured-products",
+      "name": "Featured products",
+      "settings": {
+        "featured_color_bg": "#F3F4F6",
+        "featured_product_text": "Personalised for you",
+        "featured_product_text_position": "center",
+        "featured_product_text_color": "#000000",
+        "featured_product_text_transform": "uppercase",
+        "featured_paddingY": "py-14",
+        "featured_products": [
+          "luxury-trend-sneaker-2025-fashion-casual-shoes-summer-mens-anti-slip-wear-resistant-thick-sole-outdoor-light-platform-shoes",
+          "luxury-men-sneakers-designer-platform-running-shoes-male-fashion-non-slip-sport-shoes-thick-soles-breathable-men-tenis-shoes-new",
+          "luxury-sneakers-men-new-shoes-men-2025-hot-sale-sneakers-luxurious-genuine-leather-sports-sneakers-balance-fashion-shoes",
+          "new-suede-men-s-trendy-sneaker-lace-up-flat-man-casual-sneakers-comfort-lightweight-leisure-shoes-for-men-zapatillas-informales",
+          "luxury-brand-mens-shoes-leather-sports-casual-sneakers-designer-trainers-men-lightweight-flat-womens-sneaker-skateboard-running",
+          "luxury-boy-sneaker-2025-new-fashion-outdoor-kids-basketball-shoes-soft-sole-school-children-sports-shoes-for-boy-4-to-12-years",
+          "luxury-design-girls-shoes-autumn-children-sneaker-autumn-pu-leather-high-top-shoes-for-kids-sports-tennis-fashion-girl-sneaker",
+          "luxury-children-shoes-boys-sneaker-black-kids-school-running-tennis-sneaker-autumn-platform-sports-shoes-for-boy-4-to-12-years",
+          "luxury-mens-casual-sneaker-fashion-platform-walking-shoes-for-men-outdoor-non-slip-working-shoes-brand-designer-tenis-men-shoes",
+          "r-o-men-sneaker-orange-leather-low-top-shoe-jumbo-laces-women-sneaker-casual-shoes-classic-design-thick-sole-sneakers"
+        ]
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "featured_products_3mUxgm"
   ]
 }
