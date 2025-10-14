@@ -1,0 +1,42 @@
+<section class="blockImage w-full h-[280px]">
+  {%- if section.settings.banner_image != blank -%}
+    {{-
+      section.settings.banner_image
+      | image_url: width: 2560, height: 430
+      | image_tag: loading: 'lazy', class: 'w-full h-full object-cover overflow-hidden block'
+    -}}
+  {% else %}
+    {{ 'lifestyle-1' | placeholder_svg_tag: 'w-full h-full object-cover overflow-hidden block' }}
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Banner image",
+  "class": "Banner_image",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Add image banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner image",
+      "settings": {
+        "banner_image": ""
+      },
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

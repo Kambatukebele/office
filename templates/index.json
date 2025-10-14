@@ -52,10 +52,18 @@
           "r-o-men-sneaker-orange-leather-low-top-shoe-jumbo-laces-women-sneaker-casual-shoes-classic-design-thick-sole-sneakers"
         ]
       }
+    },
+    "banner_image_LmyN7Y": {
+      "type": "banner-image",
+      "name": "Banner image",
+      "settings": {
+        "banner_image": "shopify://shop_images/block-image.jpg"
+      }
     }
   },
   "order": [
     "hero",
-    "featured_products_3mUxgm"
+    "featured_products_3mUxgm",
+    "banner_image_LmyN7Y"
   ]
 }

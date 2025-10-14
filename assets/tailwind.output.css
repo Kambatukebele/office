@@ -365,6 +365,9 @@
   .h-\[100vh\] {
     height: 100vh;
   }
+  .h-\[280px\] {
+    height: 280px;
+  }
   .h-\[calc\(100vh-4rem\)\] {
     height: calc(100vh - 4rem);
   }
@@ -560,6 +563,9 @@
   }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .object-contain {
+    object-fit: contain;
   }
   .object-cover {
     object-fit: cover;
