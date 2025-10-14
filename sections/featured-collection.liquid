@@ -4,7 +4,7 @@
       {%- for collection in section.settings.featured_collection -%}
         {%- assign image = collection.featured_image -%}
         {%- assign title = collection.title -%}
-        {%- assign link = collection.link -%}
+        {%- assign link = collection.url -%}
         {% render 'collection-card', image: image, title: title, link: link %}
       {%- endfor -%}
     {%- else -%}
