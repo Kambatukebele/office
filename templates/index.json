@@ -59,11 +59,23 @@
       "settings": {
         "banner_image": "shopify://shop_images/block-image.jpg"
       }
+    },
+    "featured_collection_yiLLf4": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "featured_collection": [
+          "bags",
+          "menss",
+          "sandals"
+        ]
+      }
     }
   },
   "order": [
     "hero",
     "featured_products_3mUxgm",
-    "banner_image_LmyN7Y"
+    "banner_image_LmyN7Y",
+    "featured_collection_yiLLf4"
   ]
 }
