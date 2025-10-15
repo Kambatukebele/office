@@ -152,5 +152,44 @@
         }
       }
     ]
+  },
+  {
+    "name": "Icons",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Please past your your social network url here"
+      },
+      {
+        "type": "url",
+        "id": "facebook_url",
+        "label": "Facebook url",
+        "info": "Past your facebook url here"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Instagram url",
+        "info": "Past your instagram url here"
+      },
+      {
+        "type": "url",
+        "id": "linkedin_url",
+        "label": "Linkedin url",
+        "info": "Past your linkedin url here"
+      },
+      {
+        "type": "url",
+        "id": "x_url",
+        "label": "X url",
+        "info": "Past your x url here"
+      },
+      {
+        "type": "url",
+        "id": "tiktok_url",
+        "label": "Tiktok url",
+        "info": "Past your tiktok url here"
+      }
+    ]
   }
 ]
