@@ -39,7 +39,7 @@
             {{  }}
           {%- else -%}
             {%- for item in (1..8) -%}
-              {% render 'product-card', image: '', description: '', title: '', price: '', link: %}
+              {% render 'product-card', image: '', description: '', title: '', price: '' %}
             {%- endfor -%}
           {%- endif -%}
         </div>
@@ -201,3 +201,15 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-card', image: '', description: '', title: '', price: '',
+    link: %}"
+  to: "{% render 'product-card', image: '', description: '', title: '', price: ''
+    %}"
+  position: 1584..1661
+{% endcomment %}
